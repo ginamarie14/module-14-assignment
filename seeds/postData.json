@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Post 1",
+    "description": "Text for post 1.",
+    "comment": "Nice!"
+  },
+  {
+    "name": "Post 2",
+    "description": "Text for post 2",
+    "comment": "Cool."
+  },
+  {
+    "name": "Post 3",
+    "description": "Text for post 3.",
+    "comment": "Ok."
+  }
+]
