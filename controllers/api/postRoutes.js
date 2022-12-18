@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// need to add edit post
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
