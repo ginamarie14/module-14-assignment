@@ -9,3 +9,5 @@ This app is a tech blog where users can create accounts, log into their accounts
 <img width="869" alt="m14-1" src="https://user-images.githubusercontent.com/44861723/208351995-24a863b6-7d4b-4692-9eb1-b19bdc870483.png">
 
 <img width="865" alt="m14-12" src="https://user-images.githubusercontent.com/44861723/208352094-7a42779e-80e4-49b4-b813-dedaf389027c.png">
+
+<img width="866" alt="m14-13" src="https://user-images.githubusercontent.com/44861723/208352751-a2aeaa80-dade-490a-be0a-a70943a0e270.png">
