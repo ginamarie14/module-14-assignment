@@ -1,48 +1,18 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Write a new post:</h3>
-
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="post-title">post title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      {{!-- <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div> --}}
-      <div class="form-group">
-        <label for="post-desc">blog post:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-  {{#if posts.length}}
-  <div class="col-md-6 project-list">
-    <h3>Last Blog Posts:</h3>
+<div class="mb-5 pt-3">
+        <a href="/dashboard/create/"><button id="create-post" class="button is-primary is-pulled-right">create post</button></a>
+        
+        <h2 class="title pb-4">Your Dashboard</h2><hr>
+{{#if posts.length}}
+    </div>
 
     {{#each posts as |post|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{post.id}}">{{post.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-      </div>
-    </div>
+        {{> post-info post}}
+        
+            <a href="/dashboard/edit/{{post.id}}"><button class="button mb-5 ml-5 is-warning">Edit my Post</button></a>
+        </div>
     {{/each}}
-  </div>
-  {{/if}}
-</div>
 
-<script src="./js/profile.js"></script>
+{{else}}
+<h5 class="pb-4 has-text-centered">No posts yet!</h5>
+
+{{/if}}

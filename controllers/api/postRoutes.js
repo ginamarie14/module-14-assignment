@@ -2,6 +2,64 @@ const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', (req, res) => {
+  Post.findAll({
+    attributes: ['id', 'title', 'created_at', 'post_content'],
+    order: [['created_at', 'ASC']],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: { model: User, attributes: ['username', 'email']
+        }
+      },
+      { model: User, attributes: ['username', 'email'] },
+    ]
+  })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'title',
+      'postText',
+      'date_created'
+    ],
+    include: [
+      // include the Comment model here:
+      { model: User, attributes: ['username', 'email'] },
+      { model: Comment,
+        attributes: ['id', 'postText', 'post_id', 'user_id', 'date_created'],
+        include: {
+          model: User,
+          attributes: ['username', 'email']
+        }
+      }
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'Post not found' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
 // need to add edit post
 
 router.post('/', withAuth, async (req, res) => {
@@ -27,7 +85,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found with this id!' });
+      res.status(404).json({ message: 'No post found with this ID' });
       return;
     }
 
@@ -35,6 +93,28 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.put('/:id', withAuth, (req, res) => {
+  Post.update({ title: req.body.title,
+    postText: req.body.postText
+  },
+    {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'Post not found' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
