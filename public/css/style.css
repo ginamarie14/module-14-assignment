@@ -1,24 +1,199 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+* {
+  box-sizing: border-box;
 }
 
-.no-button {
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: slategray;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+a:hover {
+  color: #34d0eb;
+}
+
+button {
+  border: 0;
+  padding: 5%;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card-body-2 {
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+textarea,
+input {
+  padding: 0.5%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea:focus,
+input:focus {
+  font-family: sans-serif;
+  outline: none;
+  border: 1px solid #3486eb;
+}
+
+textarea {
+  font-family: sans-serif;
+  min-width: 40%;
+  min-height: 100px;
+}
+
+/* form > div {
+  margin-bottom: 2%;
+} */
+
+form label {
+  display: block;
+  font-family: sans-serif;
+  color: black;
+  font-weight: 1000;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 1px solid rgb(204, 204, 204);
+  font-family: sans-serif;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.h1 {
+  font-family: sans-serif;
+  font-weight: 1000;
+}
+
+main {
+  font-family: sans-serif;
+  flex: 1;
+  padding: 5% 10%;
+}
+
+.btn-no-style {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
+  color: #0b2c54;
+  font-size: 100%;
+  font-weight: bold;
+  margin-left: 14px;
+}
+
+.btn-no-style:hover {
+  background: none;
+  color: #34c3eb;
+}
+
+.deletePostButton {
+  background-color: #ff0000;
+}
+
+.deletePostButton:hover {
+  background-color: #fbc7c7;
+}
+
+.post {
+  margin-bottom: 5%;
+  line-height: 150%;
+  font-family: sans-serif;
+}
+
+.post .title span {
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 85%;
+  color: #7d7d7d;
+}
+
+.edit-link {
+  display: block;
+  margin: -1.5% 0 2% 0;
+}
+
+.comment-form {
+  margin-bottom: 5%;
+  font-family: sans-serif;
+}
+
+.comment {
+  padding: 1%;
+  margin-bottom: 1%;
+  font-family: sans-serif;
+}
+
+.comment:nth-child(odd) {
+  background-color: lightblue;
+  color: white;
+}
+
+.comment .meta {
+  font-size: 90%;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
+}
+
+.editPost {
+  margin-bottom: 5%;
+  font-family: sans-serif;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
   font-size: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.card {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  color: white;
+  font-weight: bold;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 576px) {
+  .MVC {
+    display: none;
+  }
 }

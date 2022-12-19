@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const newPost = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#post-title').value.trim();
@@ -33,14 +33,14 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete post');
+      alert('Couldn\'t delete post');
     }
   }
 };
 
 document
-  .querySelector('.new-post-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('.newPost')
+  .addEventListener('submit', newPost);
 
 document
   .querySelector('.post-list')
